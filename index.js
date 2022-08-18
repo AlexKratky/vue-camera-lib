@@ -1,6 +1,6 @@
 
 import WebCam from "./src/Webcam.vue";
-import WebCamUI from "./src/WebcamUI.vue";
+import WebCamUI from "./src/WebCamUI.vue";
 export default {
     install: (app) => {
         app.component("WebCam", WebCam);

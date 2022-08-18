@@ -1,12 +1,12 @@
 # vue-camera-lib
 
-Simple yet powerful camera library for Vue 3. Main purpose of this library is to display camera output and take picture on user demand.
+Simple yet powerful camera library for Vue 3. The main purpose of this library is to display camera output and take a picture on user demand.
 
 ## Features
 
 * Taking pictures within your webpage
 * Default UI which looks like mobile a camera app, but you can always make a custom UI
-* Rotates a photo if the user uses device in landscape mode (if the device has a gyroscope) 
+* Rotates a photo if the user uses a device in landscape mode (if the device has a gyroscope) 
 
 ## Demo
 
@@ -29,7 +29,7 @@ import VueCameraLib from 'vue-camera-lib'
 app.use(VueCameraLib)
 ```
 
-So after edit the file should looks like this:
+So after edit the file should look like this:
 
 ```js
 import { createApp } from 'vue'
@@ -40,7 +40,7 @@ import VueCameraLib from 'vue-camera-lib'
 
 const app = createApp(App)
 
-// here can be router setup, other plugin
+// here can be router setup, other plugins
 
 // add this:
 app.use(VueCameraLib)
@@ -48,7 +48,7 @@ app.use(VueCameraLib)
 app.mount('#app')
 ```
 
-The second way how to do it, if you need a camera just in a few places, is to import it directly in your components
+The second way how to do it, if you need a camera just in a few places, is to import it directly into your components
 
 ```html
 <template>
@@ -71,11 +71,11 @@ export default {
 },
 ```
 
-That was about importing library to your project, lets look closely to two components, the WebCamUI and the WebCam.
+That was about importing the library to your project, let's look closely at two components, the WebCamUI and the WebCam.
 
 ### WebCamUI
 
-This component has already user interface, so its very easy to use it, the main event you want to listen to is `photoTaken` as is seen above.
+This component has already a user interface, so it is very easy to use it, the main event you want to listen to is `photoTaken` as is seen above.
 
 #### All events that are emitted:
 
@@ -84,7 +84,7 @@ This component has already user interface, so its very easy to use it, the main 
 * `start`
 * `pause`
 * `resume`
-* `error` (message) - errors occured
+* `error` (message) - errors occurred
 * `unsupported` (message) - browser is not supported
 * `init` - first run
 * `photoTaken` ({blob, image_data_url}) - Photo was successfully taken, the argument is an object with `blob` and `image_data_url` attributes
@@ -132,7 +132,7 @@ const props: {
 
 ### WebCam
 
-This component has barely any UI and should be used within own UI.
+This component has barely any UI and should be used within its own UI.
 
 #### All events that are emitted:
 
@@ -141,7 +141,7 @@ This component has barely any UI and should be used within own UI.
 * `start`
 * `pause`
 * `resume`
-* `error` (message) - errors occured
+* `error` (message) - errors occurred
 * `unsupported` (message) - browser is not supported
 * `init` - first run
 * `photoTaken` ({blob, image_data_url}) - Photo was successfully taken, the argument is an object with `blob` and `image_data_url` attributes
@@ -207,9 +207,9 @@ const props: {
 
 | Name | Parameters | Description |
 | --- | --- | --- |
-| loadCameras | | Try to load all available cameras and if auto start is enable, then it tries to start video stream |
-| changeCamera | deviceId | Change the camera. The deviceId in `cameras` data, which is array of [MediaDeviceInfo](https://developer.mozilla.org/en-US/docs/Web/API/MediaDeviceInfo). If passed undefined, then it stops current camera without starting any other. |
-| start	| | Start the camera after stopping it (will used last deviceId, if you need to use other, use changeCamera method) |
+| loadCameras | | Try to load all available cameras and if auto start is enabled, then it tries to start video stream |
+| changeCamera | deviceId | Change the camera. The deviceId in `cameras` data, which is array of [MediaDeviceInfo](https://developer.mozilla.org/en-US/docs/Web/API/MediaDeviceInfo). If passed undefined, then it stops the current camera without starting any other. |
+| start	| | Start the camera after stopping it (will be used last deviceId, if you need to use another, use changeCamera method) |
 | stop	| | Stop the camera's video steam |
 | pause	| | Pause the camera |
 | resume	| | Resume the camera after it was paused |
@@ -282,10 +282,10 @@ export default {
 
 ## Contributing
 
-Pull requests are welcome, because currently I do not plan to make any changes.
+Pull requests are welcomed because currently, I do not plan to make any changes.
 
 ## With ❤️ by Alex Kratky
 
 [Contact webpage](https://alexkratky.com/)
 
-This package was inpired by [vue-web-cam](https://www.npmjs.com/package/vue-web-cam)
+This package was inspired by [vue-web-cam](https://www.npmjs.com/package/vue-web-cam)

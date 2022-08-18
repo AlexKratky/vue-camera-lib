@@ -1,5 +1,5 @@
 <template>
-     <div :class="{'fullscreen-overlay': fullscreen, 'py-2': !fullscreen}" id="webcam-ui">
+     <div :class="{'fullscreen-overlay': fullscreen, '': !fullscreen}" id="webcam-ui">
         <Webcam ref="webcam" @init="webcamInit" @clear="clear" @stop="stop" @start="start" @pause="pause" @resume="resume" @error="error" @unsupported="unsupported" @photoTaken="photoTakenEvent" :shutterEffect="fullscreen" />
         <div class="flex flex-col justify-center py-2 mx-auto text-center sm:flex-row align-center" v-if=" ! fullscreen">
             <div @click="loadCameras">
