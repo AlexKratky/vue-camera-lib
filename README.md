@@ -10,7 +10,9 @@ Simple yet powerful camera library for Vue 3. The main purpose of this library i
 
 ## Demo
 
-Coming soon...
+[Demo is available here](https://62fe53df410812000989322e--statuesque-madeleine-efb457.netlify.app/)
+
+![demo](https://i.imgur.com/7yjXPIp.jpeg)
 
 ## Installation
 
