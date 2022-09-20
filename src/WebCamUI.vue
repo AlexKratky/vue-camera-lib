@@ -122,9 +122,16 @@ export default {
             fullscreen: false,
             photoTaken: false,
             photoFailed: false,
+            reloadCamInterval: null,
         }
     },
     emits: ['clear','stop','start','pause','resume', 'error', 'unsupported', 'init', 'photoTaken', 'fullscreen'],
+    beforeUnmount() {
+        if (this.reloadCamInterval) {
+            clearInterval(this.reloadCamInterval)
+        }
+        this.exit()
+    },
     methods: {
         async takePhoto() {
             try {
@@ -214,10 +221,10 @@ export default {
         this.cameras = this.$refs.webcam.cameras;
         if (this.cameras.length === 0) {
             // if no camera found, we will try to refresh cameras list each second until there is some camera
-            let reloadCamInterval = setInterval(() => {
+            this.reloadCamInterval = setInterval(() => {
                 this.loadCameras()
                 if (this.cameras.length > 0) {
-                    clearInterval(reloadCamInterval)
+                    clearInterval(this.reloadCamInterval)
                 }
             }, 1000);
         }

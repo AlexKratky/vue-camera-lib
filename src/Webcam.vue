@@ -9,7 +9,7 @@
 
     <canvas ref="canvas" style="display: none;" />
     <div class="hidden">
-        <audio ref="audio" volume="0.5" src="http://www.soundjay.com/mechanical/camera-shutter-click-08.mp3"></audio>
+        <audio ref="audio" volume="0.5" src="https://www.soundjay.com/mechanical/camera-shutter-click-08.mp3"></audio>
     </div>
     <div ref="shutter" class="shutter"></div>
 </template>
