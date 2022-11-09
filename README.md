@@ -222,13 +222,15 @@ You need to have a ref attribute on Webcam element and then use `this.$refs.webc
 
 ```html
 <template>
-    <!-- the ref attribute is very important -->
-    <Webcam ref="webcam" @photoTaken="photoTakenEvent" @init="webcamInit" />
-    <select @change="setCamera" v-model="deviceId">
-        <option value="">-</option>
-        <option v-for="camera in cameras" :value="camera.deviceId">{{camera.label}}</option>
-    </select>
-    <button @click="takePhoto">Take a photo</button>
+    <div>
+        <!-- the ref attribute is very important -->
+        <Webcam ref="webcam" @photoTaken="photoTakenEvent" @init="webcamInit" />
+        <select @change="setCamera" v-model="deviceId">
+            <option value="">-</option>
+            <option v-for="camera in cameras" :value="camera.deviceId">{{camera.label}}</option>
+        </select>
+        <button @click="takePhoto">Take a photo</button>
+    </div>
 </template>
 
 <script>
