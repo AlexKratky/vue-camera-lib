@@ -225,6 +225,8 @@ export default {
                 this.loadCameras()
                 if (this.cameras.length > 0) {
                     clearInterval(this.reloadCamInterval)
+                    // most likely due to permission, so we init afterwards
+                    this.$refs.webcam.init();
                 }
             }, 1000);
         }

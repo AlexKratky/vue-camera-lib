@@ -119,19 +119,29 @@ export default {
         this.stop();
     },
     methods: {
+        init() {
+            if ( ! this.innited) {
+                if (this.deviceId === null && this.autoStart) {
+                    this.start();
+                }
+                this.$emit('init', this.deviceId)
+                this.innited = true
+            }
+        },
         loadCameras() {
             navigator.mediaDevices
                 .enumerateDevices()
                 .then(deviceInfos => {
                     for (let i = 0; i !== deviceInfos.length; ++i) {
                         let deviceInfo = deviceInfos[i];
-                        if (deviceInfo.kind === 'videoinput' && this.cameras.find(el => el.deviceId === deviceInfo.deviceId) === undefined) {
+                        // need to include only devices with proper deviceId (as without permission the deviceId is = '')
+                        if (deviceInfo.deviceId && deviceInfo.kind === 'videoinput' && this.cameras.find(el => el.deviceId === deviceInfo.deviceId) === undefined) {
                             this.cameras.push(deviceInfo);
                         }
                     }
                 })
                 .then(() => {
-                    if ( ! this.innited) {
+                    if ( ! this.innited && this.cameras.length > 0) {
                         if (this.deviceId === null && this.autoStart) {
                             this.start();
                         }
