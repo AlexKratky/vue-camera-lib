@@ -3,8 +3,9 @@
     <video
         ref="video"
         class="w-full h-auto"
-        :class="{'hidden': ! deviceId, classList: true}"
+        :class="[{'hidden': ! deviceId}, ...classList.split(' ')]"
         autoplay
+        v-bind="$attrs"
     />
 
     <canvas ref="canvas" style="display: none;" />
@@ -237,7 +238,7 @@ export default {
                 }
                 // nothing found, use first if there is any
                 if ( ! this.deviceId && this.cameras.length > 0) {
-                    this.cameras[0].deviceId;
+                    this.deviceId = this.cameras[0].deviceId;
                 }
             }
             this.$emit('start');

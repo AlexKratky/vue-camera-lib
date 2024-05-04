@@ -1,6 +1,6 @@
 {
   "name": "vue-camera-lib",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Simple library for Vue.js 3. Display the camera's output or take a photo from the mobile camera/webcam.",
   "main": "index.js",
   "scripts": {
