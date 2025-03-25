@@ -10,7 +10,7 @@ Simple yet powerful camera library for Vue 3. The main purpose of this library i
 
 ## Demo
 
-[Demo is available here](https://62fe53df410812000989322e--statuesque-madeleine-efb457.netlify.app/), source code of that demo is [available here](https://github.com/AlexKratky/vue-camera-lib-demo)
+[Demo is available here](https://statuesque-madeleine-efb457.netlify.app/), source code of that demo is [available here](https://github.com/AlexKratky/vue-camera-lib-demo)
 
 ![demo](https://i.imgur.com/7yjXPIp.jpeg)
 
@@ -70,7 +70,8 @@ export default {
       console.log('image data url', data.image_data_url)
     },
   }
-},
+}
+</script>
 ```
 
 That was about importing the library to your project, let's look closely at two components, the WebCamUI and the WebCam.
