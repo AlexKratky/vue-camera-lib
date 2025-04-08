@@ -1,7 +1,7 @@
 <template>
      <div :class="{'fullscreen-overlay': fullscreen, '': !fullscreen}" id="webcam-ui">
         <Webcam ref="webcam" @init="webcamInit" @clear="clear" @stop="stop" @start="start" @pause="pause" @resume="resume" @error="error" @unsupported="unsupported" @photoTaken="photoTakenEvent" :shutterEffect="fullscreen" />
-        <div class="flex flex-col justify-center py-2 mx-auto text-center sm:flex-row align-center" v-if=" ! fullscreen">
+        <div :class="buttonsClass" v-if=" ! fullscreen">
             <div @click="loadCameras">
                 <select @change="setCamera" v-model="deviceId" class="block w-full py-2 pl-3 pr-10 text-base border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                     <option value="">{{selectCameraLabel}}</option>
@@ -9,19 +9,25 @@
                 </select>
             </div>
             <div class="button-control" v-if="takePhotoButton.display">
-                <button @click="takePhoto" v-if="deviceId" type="button" :class="takePhotoButton.css">
-                    {{ takePhotoButton.text }}
-                </button>
+                <slot name="take-photo-button" :take="takePhoto" :deviceId="deviceId" :options="takePhotoButton">
+                    <button @click="takePhoto" v-if="deviceId" type="button" :class="takePhotoButton.css">
+                        {{ takePhotoButton.text }}
+                    </button>
+                </slot>
             </div>
             <div class="pr-2" v-if="reloadCamerasButton.display">
-                <button @click="loadCameras" type="button" :class="reloadCamerasButton.css">
-                    {{ reloadCamerasButton.text }}
-                </button>
+                <slot name="load-cameras-button" :load="loadCameras" :deviceId="deviceId" :options="reloadCamerasButton">
+                    <button @click="loadCameras" type="button" :class="reloadCamerasButton.css">
+                        {{ reloadCamerasButton.text }}
+                    </button>
+                </slot>
             </div>
             <div v-if="fullscreenButton.display">
-                <button @click="toggleFullscreen" type="button" :class="fullscreenButton.css">
-                    {{ fullscreenButton.text }}
-                </button>
+                <slot name="fullscreen-button" :fullscreen="toggleFullscreen" :deviceId="deviceId" :options="fullscreenButton">
+                    <button @click="toggleFullscreen" type="button" :class="fullscreenButton.css">
+                        {{ fullscreenButton.text }}
+                    </button>
+                </slot>
             </div>
         </div>
         <div class="fullscreen-ui" style="background: rgba(0,0,0,0.4);" v-else>
@@ -75,6 +81,9 @@
 .invisible {
     visibility: hidden;
 }
+.webcam-ui-buttons {
+  @apply flex flex-col justify-center py-2 mx-auto text-center sm:flex-row align-center;
+}
 </style>
 
 <script>
@@ -113,6 +122,10 @@ export default {
         fullscreenState: {
             type: Boolean,
             default: false,
+        },
+        buttonsClass: {
+            type: String,
+            default: 'webcam-ui-buttons'
         }
     },
     data() {
