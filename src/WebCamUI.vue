@@ -82,7 +82,7 @@
     visibility: hidden;
 }
 .webcam-ui-buttons {
-  @apply flex flex-col justify-center py-2 mx-auto text-center sm:flex-row align-center;
+  @apply flex flex-col justify-center py-2 mx-auto text-center sm:flex-row items-center;
 }
 </style>
 
