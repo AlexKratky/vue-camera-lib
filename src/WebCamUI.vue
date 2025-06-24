@@ -3,7 +3,7 @@
         <Webcam ref="webcam" @init="webcamInit" @clear="clear" @stop="stop" @start="start" @pause="pause" @resume="resume" @error="error" @unsupported="unsupported" @photoTaken="photoTakenEvent" :shutterEffect="fullscreen" />
         <div :class="buttonsClass" v-if=" ! fullscreen">
             <div @click="loadCameras">
-                <select @change="setCamera" v-model="deviceId" class="block w-full py-2 pl-3 pr-10 text-base border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                <select @change="setCamera" v-model="deviceId" class="block py-2 pr-10 pl-3 w-full text-base rounded-md border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                     <option value="">{{selectCameraLabel}}</option>
                     <option v-for="camera in cameras" :value="camera.deviceId">{{camera.label}}</option>
                 </select>
@@ -31,8 +31,8 @@
             </div>
         </div>
         <div class="fullscreen-ui" style="background: rgba(0,0,0,0.4);" v-else>
-            <div class="flex items-center justify-center h-full">
-                <div class="flex items-center justify-between p-8 align-center w-80">
+            <div class="flex justify-center items-center h-full">
+                <div class="flex justify-between items-center p-8 w-80">
                     <div @click="toggleFullscreen">
                         <button class="text-white">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -82,7 +82,7 @@
     visibility: hidden;
 }
 .webcam-ui-buttons {
-  @apply flex flex-col justify-center py-2 mx-auto text-center sm:flex-row align-center;
+  @apply flex flex-col justify-center py-2 mx-auto text-center sm:flex-row items-center;
 }
 </style>
 
