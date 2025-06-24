@@ -1,5 +1,11 @@
 # vue-camera-lib
 
+[![npm version](https://img.shields.io/npm/v/vue-camera-lib.svg)](https://www.npmjs.com/package/vue-camera-lib)
+[![npm downloads](https://img.shields.io/npm/dw/vue-camera-lib.svg)](https://www.npmjs.com/package/vue-camera-lib)
+[![GitHub stars](https://img.shields.io/github/stars/AlexKratky/vue-camera-lib.svg)](https://github.com/AlexKratky/vue-camera-lib)
+[![License](https://img.shields.io/npm/l/vue-camera-lib.svg)](https://github.com/AlexKratky/vue-camera-lib/blob/master/LICENSE)
+[![Bundle size](https://img.shields.io/bundlephobia/min/vue-camera-lib.svg)](https://bundlephobia.com/package/vue-camera-lib)
+
 Simple yet powerful camera library for Vue 3. The main purpose of this library is to display camera output and take a picture on user demand.
 
 ## Features
