@@ -61,28 +61,57 @@
 
 <style>
 .fullscreen-ui {
-    @apply fixed bottom-0 right-0 left-0 h-32
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    height: 8rem;
 }
 .fullscreen-overlay {
-    @apply fixed top-0 bottom-0 left-0 right-0 z-50 w-screen h-screen bg-black
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
 }
 .camera {
-    @apply text-white h-12 w-12 border-4 border-white rounded-full
+    color: #fff;
+    height: 3rem;
+    width: 3rem;
+    border: 4px solid #fff;
+    border-radius: 9999px;
 }
 .camera-success {
-    @apply border-green-500
+    border-color: #22c55e;
 }
 .camera-failed {
-    @apply border-red-500
+    border-color: #ef4444;
 }
 .button-control {
-    @apply px-2 py-2 sm:py-0
+    padding: 0.5rem;
 }
 .invisible {
     visibility: hidden;
 }
 .webcam-ui-buttons {
-  @apply flex flex-col justify-center py-2 mx-auto text-center sm:flex-row items-center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+@media (min-width: 640px) {
+  .webcam-ui-buttons {
+    flex-direction: row;
+  }
 }
 </style>
 
